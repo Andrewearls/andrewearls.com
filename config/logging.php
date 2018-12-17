@@ -36,12 +36,13 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily'],
+            'channels' => ['single'],
         ],
 
         'single' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
+            'driver' => 'errorlog',
+            // Heroku documentation does not include following line - not sure if needed
+            // 'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
         ],
 
