@@ -33,7 +33,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-2">
-                        Navarea goes here
+                        @yield('navarea')
                     </div>
                     <div class="col-10">
                         @yield('content')

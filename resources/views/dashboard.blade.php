@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@section('navarea')
+
+    <div class="Title">Project List</div>
+    <ul>
+        <!-- Start foreach Project -->
+        <li><a href="">Project Name</a></li>
+        <!-- End Foreach -->
+    </ul>
+
+@endsection
+
 @section('content')
 <!-- Start Foreach Category -->
     <div class="row justify-content-center">
