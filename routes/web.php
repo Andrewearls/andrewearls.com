@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// hiding authentication features until needed
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
