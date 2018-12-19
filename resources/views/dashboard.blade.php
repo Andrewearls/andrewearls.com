@@ -19,7 +19,7 @@
         </div>
         <div class="col-9">
             <!-- Start Foreach Project -->
-                <div class="col-3">
+                <div class="col-4">
                     <div class="card">
                         <div class="card-header">Project Name</div>
 
