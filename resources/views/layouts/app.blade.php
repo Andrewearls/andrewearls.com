@@ -30,7 +30,13 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container-fluid">
+                <div class="col-3">
+                    Navarea goes here
+                </div>
+                <div class="col-9">
+                    @yield('content')
+                </div>
         </main>
     </div>
     <footer class="navbar ">
