@@ -33,5 +33,12 @@
             @yield('content')
         </main>
     </div>
+    <footer class="navbar ">
+        <div class="container justify-content-center">
+            <div>
+                Copyright 2018 <a href="/">AndrewEarls.com</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
