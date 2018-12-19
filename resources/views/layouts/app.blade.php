@@ -31,12 +31,15 @@
 
         <main class="py-4">
             <div class="container-fluid">
-                <div class="col-3">
-                    Navarea goes here
+                <div class="row">
+                    <div class="col-2">
+                        Navarea goes here
+                    </div>
+                    <div class="col-10">
+                        @yield('content')
+                    </div>
                 </div>
-                <div class="col-9">
-                    @yield('content')
-                </div>
+            </div>
         </main>
     </div>
     <footer class="navbar ">
