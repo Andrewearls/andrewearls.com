@@ -41,6 +41,7 @@ nav {
 	text-align: center;	
 	ul {
 		li {
+			border-bottom: 1px solid $white;
 			&:hover {
 				border-bottom: 1px solid $brightblue;
 				a {

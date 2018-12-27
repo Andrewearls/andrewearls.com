@@ -10527,6 +10527,10 @@ nav {
   text-align: center;
 }
 
+.nav-area ul li {
+  border-bottom: 1px solid #ffffff;
+}
+
 .nav-area ul li:hover {
   border-bottom: 1px solid #1d68a7;
 }
