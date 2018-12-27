@@ -31,7 +31,7 @@
 
         <main class="">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row no-gutters">
                     <div class="col-2 nav-area">
                         @yield('navarea')
                     </div>

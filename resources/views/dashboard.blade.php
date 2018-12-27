@@ -15,10 +15,12 @@
 <div class="container-fluid">
 <!-- Start Foreach Category -->
     <div class="row justify-content-center">
-        <div class="col-3 order-sm-last category-container">
-            <a class="title" href="#">Category Name</a>
+        <div class="col-2 order-sm-last category-container">
+            <div>
+                <a class="title" href="#">Category Name</a>
+            </div>
         </div>
-        <div class="col-9 project-container">
+        <div class="col-10 project-container">
             <!-- Start Foreach Project -->
                 <div class="col-4">
                     <div class="card">

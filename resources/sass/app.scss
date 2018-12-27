@@ -37,8 +37,13 @@ nav {
 	border-bottom: 1px solid $border-gray;
 }
 
+.container-fluid {
+	padding: 0px;
+}
+
 .nav-area {
 	text-align: center;	
+	z-index: 10;
 	ul {
 		li {
 			border-bottom: 1px solid $white;
@@ -55,13 +60,18 @@ nav {
 .content-container {
 	.row {
 		> div {
-			padding-top: 30px;
-			padding-bottom: 30px;
+			padding-top: 15px;
+			padding-bottom: 15px;
 		}
 		.category-container {			
 			text-align: center;
-			a {
-			
+			div {
+			    -webkit-transform: rotate(90deg);
+			    -moz-transform: rotate(90deg);
+			    -o-transform: rotate(90deg);
+			    -ms-transform: rotate(90deg);
+			    transform: rotate(90deg);	
+			    
 			}
 		}
 		.project-container {

@@ -10523,8 +10523,13 @@ nav {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.container-fluid {
+  padding: 0px;
+}
+
 .nav-area {
   text-align: center;
+  z-index: 10;
 }
 
 .nav-area ul li {
@@ -10540,12 +10545,17 @@ nav {
 }
 
 .content-container .row > div {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .content-container .row .category-container {
   text-align: center;
+}
+
+.content-container .row .category-container div {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 #Project img,
