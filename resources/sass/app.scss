@@ -8,7 +8,67 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+#app, main, .nav-area, .content-container > .row {
+	min-height: 100vh;
 }
+
+.navbar-laravel, .nav-area, .category-container, footer {
+  background-color: $white;
+  box-shadow: $default-box-shadow;
+}
+
+a {
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.title{
+	font-size: 32px;
+}
+
+.nav-area {
+	border-top: 2px;
+	text-align: center;	
+	ul {
+		li {
+			&:hover {
+				border-bottom: 1px solid $brightblue;
+				a {
+					color: $brightblue;
+				}
+			}
+		}
+	}
+}
+
+.content-container {
+	.row {
+		> div {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.category-container {			
+			text-align: center;
+			a {
+				height: 100%;
+				margin: auto;
+			}
+		}
+		.project-container {
+			
+		}
+	}
+}
+
+footer{
+	background-color: rgba(0, 0, 0, 0.03);
+	border-top: 1px solid $border-gray;
+}
+

@@ -23,19 +23,19 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container  justify-content-center">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand title" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-2 nav-area">
                         @yield('navarea')
                     </div>
-                    <div class="col-10">
+                    <div class="col-10 content-container">
                         @yield('content')
                     </div>
                 </div>

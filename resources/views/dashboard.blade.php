@@ -2,7 +2,7 @@
 
 @section('navarea')
 
-    <div class="Title">Project List</div>
+    <div class="title">Project List</div>
     <ul>
         <!-- Start foreach Project -->
         <li><a href="">Project Name</a></li>
@@ -14,10 +14,10 @@
 @section('content')
 <!-- Start Foreach Category -->
     <div class="row justify-content-center">
-        <div class="col-3 order-sm-last">
-            <a href="#">Category Name</a>
+        <div class="col-3 order-sm-last category-container">
+            <a class="title" href="#">Category Name</a>
         </div>
-        <div class="col-9">
+        <div class="col-9 project-container">
             <!-- Start Foreach Project -->
                 <div class="col-4">
                     <div class="card">
