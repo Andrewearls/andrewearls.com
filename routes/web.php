@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('project', 'ProjectController@index')->name('project');
+
 
 // hiding authentication features until needed
 // Auth::routes();

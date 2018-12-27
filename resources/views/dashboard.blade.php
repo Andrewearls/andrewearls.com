@@ -12,6 +12,7 @@
 @endsection
 
 @section('content')
+<div class="container-fluid">
 <!-- Start Foreach Category -->
     <div class="row justify-content-center">
         <div class="col-3 order-sm-last category-container">
@@ -37,4 +38,5 @@
         </div>
     </div>
 <!-- End Foreach Category -->
+</div>
 @endsection
