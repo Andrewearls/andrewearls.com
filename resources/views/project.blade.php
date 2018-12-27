@@ -14,7 +14,17 @@
 	<div id="Project" class="container-fluid">
 		<div id="Infographic" class="row no-gutters justify-content-center">
 			<!-- Infographic image here -->
-			<img src="https://via.placeholder.com/300">
+			<div id="responsive-wrapper" class="embed-responsive embed-responsive-4by3">
+				<script type='text/javascript' charset='utf-8'>     
+				   var iframe = document.createElement('iframe'); 
+				   iframe.classList.add('embed-responsive-item');
+				   iframe.src = 'http://www.dubiousmacrocosm.com';   
+				   document.getElementById('responsive-wrapper').appendChild(iframe);		   
+				</script>
+			</div>
+			
+			<!-- <img src="https://via.placeholder.com/300"> -->
+
 		</div>
 		<div id="Description" class="row no-gutters justify-content-center">
 			<p>
