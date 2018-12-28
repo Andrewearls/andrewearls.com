@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top">
             <div class="container  justify-content-center">
                 <a class="navbar-brand title" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -31,8 +31,8 @@
 
         <main class="">
             <div class="container-fluid">
-                <div class="row no-gutters">
-                    <div class="col-2 nav-area">
+                <div class="row no-gutters justify-content-end">
+                    <div class="col-2 nav-area fixed-top">
                         @yield('navarea')
                     </div>
                     <div class="col-10 content-container">
@@ -48,6 +48,7 @@
                 Copyright 2018 <a href="/">AndrewEarls.com</a>
             </div>
         </div>
+        @yield('scripts')
     </footer>
 </body>
 </html>

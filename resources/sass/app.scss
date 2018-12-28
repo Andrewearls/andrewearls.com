@@ -35,15 +35,21 @@ ul {
 
 nav {
 	border-bottom: 1px solid $border-gray;
+	z-index: 1040;
 }
 
 .container-fluid {
 	padding: 0px;
 }
 
+main {
+	padding-top: 78px;
+}
+
 .nav-area {
 	text-align: center;	
 	z-index: 10;
+	margin-top:78px;
 	ul {
 		li {
 			border-bottom: 1px solid $white;
@@ -70,8 +76,7 @@ nav {
 			    -moz-transform: rotate(90deg);
 			    -o-transform: rotate(90deg);
 			    -ms-transform: rotate(90deg);
-			    transform: rotate(90deg);	
-			    
+			    transform: rotate(90deg);			    
 			}
 		}
 		.project-container {
@@ -97,7 +102,8 @@ nav {
 }
 
 footer{
-	background-color: rgba(0, 0, 0, 0.03);
+	background-color: #ededee;
 	border-top: 1px solid $border-gray;
+	z-index: 1040;
 }
 

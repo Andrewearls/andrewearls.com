@@ -16,7 +16,7 @@
 <!-- Start Foreach Category -->
     <div class="row justify-content-center">
         <div class="col-2 order-sm-last category-container">
-            <div>
+            <div class="category-title-wrapper">
                 <a class="title" href="#">Category Name</a>
             </div>
         </div>
@@ -41,4 +41,27 @@
     </div>
 <!-- End Foreach Category -->
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+
+        function center_title() {
+            $child = $('.category-title-wrapper');
+            $parent = $child.parent();
+
+            $child.css("position","absolute");
+            $child.css("top", (($parent.height() - $child.outerWidth()) / 2) + $parent.scrollTop() + "px");
+            $child.css("left", (($parent.width() - $child.outerHeight()) / 2) + $parent.scrollLeft() + "px");
+        }
+
+        $(document).ready(function() {
+            center_title();
+        });
+
+        $(window).resize(function(){
+            // alert('changed size');
+            center_title();
+        });
+    </script>
 @endsection

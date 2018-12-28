@@ -19,7 +19,8 @@
 				   var iframe = document.createElement('iframe'); 
 				   iframe.classList.add('embed-responsive-item');
 				   iframe.src = 'http://www.dubiousmacrocosm.com';   
-				   document.getElementById('responsive-wrapper').appendChild(iframe);		   
+				   document.getElementById('responsive-wrapper').appendChild(iframe);  
+				   
 				</script>
 			</div>
 			

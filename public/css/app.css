@@ -10521,15 +10521,21 @@ ul {
 
 nav {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  z-index: 1040;
 }
 
 .container-fluid {
   padding: 0px;
 }
 
+main {
+  padding-top: 78px;
+}
+
 .nav-area {
   text-align: center;
   z-index: 10;
+  margin-top: 78px;
 }
 
 .nav-area ul li {
@@ -10575,7 +10581,8 @@ nav {
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #ededee;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
+  z-index: 1040;
 }
 
