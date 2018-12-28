@@ -99,6 +99,9 @@ main {
 	.row{
 		border-bottom: 1px solid $border-gray;
 	}
+	#Downloads textarea {
+		resize: none;
+	}
 }
 
 footer{

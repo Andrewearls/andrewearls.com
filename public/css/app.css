@@ -10580,6 +10580,10 @@ main {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+#Project #Downloads textarea {
+  resize: none;
+}
+
 footer {
   background-color: #ededee;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
