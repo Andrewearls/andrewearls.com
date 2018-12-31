@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('project', 'ProjectController@index')->name('project');
+Route::get('cms', 'ProjectController@create')->name('cms');
 
 
 // hiding authentication features until needed

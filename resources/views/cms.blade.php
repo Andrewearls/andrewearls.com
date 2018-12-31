@@ -12,8 +12,8 @@
 
 @section('content')
 	<div id="Project" class="container-fluid">
-		@include('components.infographic', ['url' => ''])
-		@include('components.description')
+		@include('components.cms.infographic', ['url' => ''])
+		@include('components.cms.description')
 		@include('components.reference')
 		@include('components.download')		
 	</div>

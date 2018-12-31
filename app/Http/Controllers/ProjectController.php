@@ -25,4 +25,9 @@ class ProjectController extends Controller
     {
         return view('project');
     }
+
+    public function create()
+    {
+        return view('cms');
+    }
 }
