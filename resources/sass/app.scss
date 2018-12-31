@@ -29,6 +29,25 @@ ul {
 	margin: 0px;
 }
 
+form {
+	input, textarea {
+		width: 100%;
+		border: 1px solid $cyan;
+		border-radius: 3px;
+	}
+	input {
+		text-align: center;
+	}
+	textarea {
+		overflow: scroll;
+	}
+	.title{
+		label{
+			padding-left: 15px;
+		}
+	}
+}
+
 .title {
 	font-size: 32px;
 }
@@ -99,7 +118,7 @@ main {
 	.row{
 		border-bottom: 1px solid $border-gray;
 	}
-	#Downloads textarea {
+	textarea {
 		resize: none;
 	}
 }

@@ -10515,6 +10515,25 @@ ul {
   margin: 0px;
 }
 
+form input,
+form textarea {
+  width: 100%;
+  border: 1px solid #6cb2eb;
+  border-radius: 3px;
+}
+
+form input {
+  text-align: center;
+}
+
+form textarea {
+  overflow: scroll;
+}
+
+form .title label {
+  padding-left: 15px;
+}
+
 .title {
   font-size: 32px;
 }
@@ -10580,7 +10599,7 @@ main {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-#Project #Downloads textarea {
+#Project textarea {
   resize: none;
 }
 
