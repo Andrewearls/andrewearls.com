@@ -1,4 +1,5 @@
 <div id="Infographic" class="row no-gutters justify-content-center">
+	{{Form::input()}}
 	<div id="responsive-wrapper" class="embed-responsive embed-responsive-4by3">
 		<script type='application/javascript' charset='utf-8'>
 		   var iframe = document.createElement('iframe');
