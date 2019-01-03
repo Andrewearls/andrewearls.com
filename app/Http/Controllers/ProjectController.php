@@ -41,7 +41,9 @@ class ProjectController extends Controller
 
     public function update($id)
     {
-        # code...
+        Projects::where('id', $id)
+                ->update($validated);
+        return 'success';
     }
 
     public function delete($value='')
