@@ -11,11 +11,20 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 {!! Form::open(['url' => route('update', ['id' => $project->id]), 'id' => 'cms']) !!}
 	<div id="Project" class="container-fluid">
 		<div class="title row">
 			<div class="col">
-				{{ Form::text('projectName', $project->name) }}
+				{{ Form::text('name', $project->name) }}
 			</div>
 			
 		</div>
@@ -38,7 +47,7 @@
 		<div class="container">			
 			<div id="Description" class="row justify-content-center">
 				
-				{{ Form::textarea('descripton', $project->description) }}
+				{{ Form::textarea('description', $project->description) }}
 				
 			</div>
 		</div>
@@ -58,6 +67,28 @@
 
 @section('scripts')
 <script type="text/javascript">
+	live = {!! $project->live !!}
+	function collect_data() {
+		data = {
+			_token: "{!! csrf_token() !!}",
+			name: $('[name="name"]').val(),
+			url: $('[name="url"]').val(),
+			description: $('[name="description"]').val(),
+			live: live,
+		}
+		console.log(data);
+		return data;
+	}
+	function update(){
+		$.ajax({
+			method: "POST",
+			url: '{!! route('update', ['id' => $project->id]) !!}',
+			data: collect_data(),
+
+		}).done(function( msg ) {
+			console.log(msg);
+		});
+	};
 	function clean_string(string) {
 		// Remove trailing spaces
 		clean = $.trim(string);
@@ -65,13 +96,14 @@
 		return clean;
 	};
 	$(document).ready(function () {
-		$('[name="projectName"]').change(function () {
+		$('[name="name"]').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());
 			//place clean string in the input
 			$(this).val(clean);
 			//Chage the navarea Title
 			$('.nav-area').find('.title').text(clean);
+			update();
 		})
 		$('[name="url"]').change(function() {
 			//clean the input
@@ -80,6 +112,7 @@
 			$(this).val(clean);
 			//load new ifram url
 			$('#Infographic').find('iframe').prop('src', clean);
+			update();
 		})
 		$('[name="reference"]').change(function () {
 			//clean the input
@@ -113,6 +146,8 @@
 		})		
 		$('.switch').click(function () {
 			$(this).find('.fas').toggleClass('fa-toggle-off fa-toggle-on')
+			live = !live ? 1 : 0;
+			update();
 		})
 		$('#Reference').on('click', 'a', function (e) {
 			e.preventDefault();
