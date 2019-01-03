@@ -1,4 +1,4 @@
-<div id="Categories" class="row no-gutters justify-content-center">
+<div id="Categories" class="row no-gutters justify-content-center section">
 	<!-- Start foreach -->
 	<div class="col-2 category-object hidden">
 		<a href="">

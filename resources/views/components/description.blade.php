@@ -14,7 +14,7 @@
 
 <!-- Descriptions should be delivered in two halves -->
 <div class="container">
-<div id="Description" class="row justify-content-center">
+<div id="Description" class="row justify-content-center section">
 	<div class="col-6">
 		<?php echo $description['firstHalf']; ?>
 	</div>

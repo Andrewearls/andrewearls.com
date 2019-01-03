@@ -8,7 +8,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-#app, main, .nav-area, .content-container div > .row {
+#app, main, .nav-area, .section {
 	min-height: 100vh;
 }
 
@@ -83,7 +83,7 @@ main {
 }
 
 .content-container {
-	.row {
+	.section {
 		> div {
 			padding-top: 15px;
 			padding-bottom: 15px;
@@ -110,7 +110,7 @@ main {
 		max-height: 100%;
 		margin: auto;
 	}
-	.row{
+	.section{
 		border-bottom: 1px solid $border-gray;
 	}
 	textarea {
@@ -131,11 +131,21 @@ main {
 }
 
 #cms{
-	#Reference, #Categories{
+	#Reference, #Categories {
 		a {
 			&:hover{
 				color: $red;
 			}
+		}
+	}
+	.switch {
+		line-height: 55px;
+		
+		.fa-toggle-off {
+			color: $brightred;
+		}
+		.fa-toggle-on {
+			color: $lime;
 		}
 	}
 }

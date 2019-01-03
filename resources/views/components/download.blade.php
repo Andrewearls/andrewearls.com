@@ -1,4 +1,4 @@
-<div id="Downloads" class="row no-gutters justify-content-center">
+<div id="Downloads" class="row no-gutters justify-content-center section">
 	<textarea readonly cols="100">
 @include('components.infographic', ['url' => 'http://www.dubiousmacrocosm.com'])
 	</textarea>

@@ -10493,7 +10493,7 @@ a.text-dark:focus {
 #app,
 main,
 .nav-area,
-.content-container div > .row {
+.section {
   min-height: 100vh;
 }
 
@@ -10569,16 +10569,16 @@ main {
   color: #1d68a7;
 }
 
-.content-container .row > div {
+.content-container .section > div {
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-.content-container .row .category-container {
+.content-container .section .category-container {
   text-align: center;
 }
 
-.content-container .row .category-container div {
+.content-container .section .category-container div {
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
@@ -10591,7 +10591,7 @@ main {
   margin: auto;
 }
 
-#Project .row {
+#Project .section {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -10617,6 +10617,18 @@ main {
 #cms #Reference a:hover,
 #cms #Categories a:hover {
   color: #e3342f;
+}
+
+#cms .switch {
+  line-height: 55px;
+}
+
+#cms .switch .fa-toggle-off {
+  color: #FF0000;
+}
+
+#cms .switch .fa-toggle-on {
+  color: #00FF00;
 }
 
 footer {

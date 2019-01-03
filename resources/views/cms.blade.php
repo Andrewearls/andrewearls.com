@@ -13,8 +13,16 @@
 @section('content')
 {!! Form::open(['url' => 'foo/bar', 'id' => 'cms']) !!}
 	<div id="Project" class="container-fluid">
-		<div class="title">
-			{{ Form::label('Infographic:') }}
+		<div class="title row justify-content-between">
+			<div class="col">
+				{{ Form::label('Infographic:') }}
+			</div>
+			<div class="col-2">	
+				<div class="row no-gutters">			
+					<div class="col">Live:</div>
+					<div class="col switch"><i class="fas fa-toggle-off"></i></div>	
+				</div>	
+			</div>
 		</div>
 		{{ Form::text('url', 'http://www.dubiousmacrocosm.com') }}		
 		@include('components.infographic', ['url' => 'http://www.dubiousmacrocosm.com'])
@@ -49,7 +57,7 @@
 		clean = $.trim(string);
 		// Return clean string
 		return clean;
-	}
+	};
 	$(document).ready(function () {
 		$('[name="url"]').change(function() {
 			//clean the input
@@ -58,7 +66,7 @@
 			$(this).val(clean);
 			//load new ifram url
 			$('#Infographic').find('iframe').prop('src', clean);
-		});
+		})
 		$('[name="reference"]').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());
@@ -88,15 +96,19 @@
 			$(newObj).appendTo('#Categories');
 			//remove hidden class from new category
 			$(newObj).removeClass('hidden');
+		})		
+		$('.switch').click(function () {
+			$(this).find('.fas').toggleClass('fa-toggle-off fa-toggle-on')
 		})
-		$(document).on('click', '#Reference a', function (event) {
-			event.preventDefault();
+		$('#Reference').on('click', 'a', function (e) {
+			e.preventDefault();
 			$(this).closest('.reference-object').remove();
-		})
-		$(document).on('click', '#Categories a', (function (event) {
-			event.preventDefault();
+		});
+		$('#Categories').on('click', 'a', function (e) {
+			e.preventDefault();
 			$(this).closest('.category-object').remove();
 		})
-	})
+	});
+	
 </script>
 @endsection
