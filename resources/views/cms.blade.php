@@ -13,6 +13,12 @@
 @section('content')
 {!! Form::open(['url' => 'foo/bar', 'id' => 'cms']) !!}
 	<div id="Project" class="container-fluid">
+		<div class="title row">
+			<div class="col">
+				{{ Form::text('projectName', 'Project Name') }}
+			</div>
+			
+		</div>
 		<div class="title row justify-content-between">
 			<div class="col">
 				{{ Form::label('Infographic:') }}
@@ -59,6 +65,14 @@
 		return clean;
 	};
 	$(document).ready(function () {
+		$('[name="projectName"]').change(function () {
+			//clean the input
+			clean = clean_string($(this).val());
+			//place clean string in the input
+			$(this).val(clean);
+			//Chage the navarea Title
+			$('.nav-area').find('.title').text(clean);
+		})
 		$('[name="url"]').change(function() {
 			//clean the input
 			clean = clean_string($(this).val());

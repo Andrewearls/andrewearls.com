@@ -10557,6 +10557,10 @@ main {
   margin-top: 78px;
 }
 
+.nav-area .title {
+  font-size: 22px;
+}
+
 .nav-area ul li {
   border-bottom: 1px solid #ffffff;
 }
