@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('navarea')
-	<div class="title">Project Name</div>
+	<div class="title">{{$project->name}}</div>
 	<ul>
 		<li><a href="#Infographic">Infographic</a></li>
 		<li><a href="#Description">Description</a></li>
@@ -15,7 +15,7 @@
 	<div id="Project" class="container-fluid">
 		<div class="title row">
 			<div class="col">
-				{{ Form::text('projectName', 'Project Name') }}
+				{{ Form::text('projectName', $project->name) }}
 			</div>
 			
 		</div>
@@ -30,27 +30,27 @@
 				</div>	
 			</div>
 		</div>
-		{{ Form::text('url', 'http://www.dubiousmacrocosm.com') }}		
-		@include('components.infographic', ['url' => 'http://www.dubiousmacrocosm.com'])
+		{{ Form::text('url', $project->url) }}		
+		@include('components.infographic', ['url' => $project->url])
 		<div class="title">
 			{{ Form::label('Description:') }}
 		</div>
 		<div class="container">			
 			<div id="Description" class="row justify-content-center">
 				
-				{{ Form::textarea('descripton') }}
+				{{ Form::textarea('descripton', $project->description) }}
 				
 			</div>
 		</div>
 		<div class="title">
 			{{ Form::label('References:') }}
 		</div>
-		{{ Form::text('reference', 'Google') }}
+		{{ Form::text('reference', '') }}
 		@include('components.reference')
 		<div class="title">
 			{{ Form::label('Categories:') }}
 		</div>
-		{{ Form::text('categories', 'Websites') }}
+		{{ Form::text('categories', '') }}
 		@include('components.categories')
 	</div>
 {!! Form::close() !!}	
