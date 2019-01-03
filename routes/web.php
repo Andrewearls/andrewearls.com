@@ -16,7 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('project', 'ProjectController@index')->name('project');
-Route::get('cms', 'ProjectController@create')->name('cms');
+
+Route::get('cms', 'ProjectController@list')->name('cms');
+Route::get('cms/create', 'ProjectController@create')->name('create');
+Route::get('cms/edit/{id}', 'ProjectController@edit')->name('edit');
+Route::post('cms/update/{id}', 'ProjectController@update')->name('update');
 
 
 // hiding authentication features until needed

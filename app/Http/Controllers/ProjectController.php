@@ -30,10 +30,16 @@ class ProjectController extends Controller
     public function create()
     {
         $project = Projects::create();
+        return redirect()->route('update', ['id' => $project->id]);
+    }
+
+    public function edit($id)
+    {
+        $project = Projects::find($id);
         return view('cms')->with(['project' => $project]);
     }
 
-    public function update()
+    public function update($id)
     {
         # code...
     }
