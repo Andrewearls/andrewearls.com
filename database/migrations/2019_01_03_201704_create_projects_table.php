@@ -15,6 +15,10 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 100)->default('Project Name');
+            $table->text('description')->default('A Description');
+            $table->string('url')->nullable();
+            $table->boolean('live')->default(false);
             $table->timestamps();
         });
     }
