@@ -6,7 +6,7 @@
 		<li><a href="#Infographic">Infographic</a></li>
 		<li><a href="#Description">Description</a></li>
 		<li><a href="#Reference">Reference</a></li>
-		<li><a href="#Downloads">Downloads</a></li>
+		<li><a href="#Categories">Categories</a></li>
 	</ul>
 @endsection
 
