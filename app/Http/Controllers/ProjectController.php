@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Projects;
+use App\Requests\ProjectValidator;
 
 class ProjectController extends Controller
 {
@@ -39,8 +40,9 @@ class ProjectController extends Controller
         return view('cms')->with(['project' => $project]);
     }
 
-    public function update($id)
+    public function update(ProjectValidator $request, $id)
     {
+        $validated = $request->validate();
         Projects::where('id', $id)
                 ->update($validated);
         return 'success';

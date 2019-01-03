@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-{!! Form::open(['url' => 'foo/bar', 'id' => 'cms']) !!}
+{!! Form::open(['url' => route('update', ['id' => $project->id]), 'id' => 'cms']) !!}
 	<div id="Project" class="container-fluid">
 		<div class="title row">
 			<div class="col">
