@@ -39,7 +39,7 @@ form {
 		text-align: center;
 	}
 	textarea {
-		overflow: scroll;
+		overflow-y: scroll;
 	}
 	.title{
 		label{
@@ -110,16 +110,33 @@ main {
 		max-height: 100%;
 		margin: auto;
 	}
-
-	a > img {
-		padding-right: 30px;
-	}
-
 	.row{
 		border-bottom: 1px solid $border-gray;
 	}
 	textarea {
 		resize: none;
+	}
+	.hidden {
+		display: none;
+	}
+	#Categories, #Reference {
+		a {
+			width: 100%;
+			text-align: center;
+		}
+		img {
+			padding-right: 30px;
+		}
+	}
+}
+
+#cms{
+	#Reference, #Categories{
+		a {
+			&:hover{
+				color: $red;
+			}
+		}
 	}
 }
 

@@ -37,7 +37,66 @@
 			{{ Form::label('Categories:') }}
 		</div>
 		{{ Form::text('categories', 'Websites') }}
-		@include('components.reference')
+		@include('components.categories')
 	</div>
 {!! Form::close() !!}	
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+	function clean_string(string) {
+		// Remove trailing spaces
+		clean = $.trim(string);
+		// Return clean string
+		return clean;
+	}
+	$(document).ready(function () {
+		$('[name="url"]').change(function() {
+			//clean the input
+			clean = clean_string($(this).val());
+			//place clean string in the input
+			$(this).val(clean);
+			//load new ifram url
+			$('#Infographic').find('iframe').prop('src', clean);
+		});
+		$('[name="reference"]').change(function () {
+			//clean the input
+			clean = clean_string($(this).val());
+			//remove the val from the input
+			$(this).val('');
+			//create a new reference object
+			newObj = $('#Reference').find('.hidden').clone();
+			// alert($(newObj).find('a').text());
+			//replace text with clean input
+			$(newObj).find('.name').text(clean);
+			//add new reference to the end of the list
+			$(newObj).appendTo('#Reference');
+			//remove hidden class from new reference
+			$(newObj).removeClass('hidden');
+		})
+		$('[name="categories"').change(function () {
+			//clean the input
+			clean = clean_string($(this).val());
+			//remove the val from the input
+			$(this).val('');
+			//create a new category object
+			newObj = $('#Categories').find('.hidden').clone();
+			// alert($(newObj).find('a').text());
+			//replace text with clean input
+			$(newObj).find('.name').text(clean);
+			//add new category to the end of the list
+			$(newObj).appendTo('#Categories');
+			//remove hidden class from new category
+			$(newObj).removeClass('hidden');
+		})
+		$(document).on('click', '#Reference a', function (event) {
+			event.preventDefault();
+			$(this).closest('.reference-object').remove();
+		})
+		$(document).on('click', '#Categories a', (function (event) {
+			event.preventDefault();
+			$(this).closest('.category-object').remove();
+		})
+	})
+</script>
 @endsection

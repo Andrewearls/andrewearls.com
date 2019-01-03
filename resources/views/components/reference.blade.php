@@ -1,8 +1,10 @@
 <div id="Reference" class="row no-gutters justify-content-center">
 	<!-- Start foreach -->
-	<div class="col-3">
-		<a href="#">
-			<img src="https://via.placeholder.com/25">Reference Name
+	<div class="col-2 reference-object hidden">
+		<a href="">
+			<div>
+				<img src="https://via.placeholder.com/25"><span class="name">category Name</span>
+			</div>
 		</a>
 	</div>
 	<!-- End foreach -->

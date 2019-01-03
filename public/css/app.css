@@ -10527,7 +10527,7 @@ form input {
 }
 
 form textarea {
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 form .title label {
@@ -10591,16 +10591,32 @@ main {
   margin: auto;
 }
 
-#Project a > img {
-  padding-right: 30px;
-}
-
 #Project .row {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 #Project textarea {
   resize: none;
+}
+
+#Project .hidden {
+  display: none;
+}
+
+#Project #Categories a,
+#Project #Reference a {
+  width: 100%;
+  text-align: center;
+}
+
+#Project #Categories img,
+#Project #Reference img {
+  padding-right: 30px;
+}
+
+#cms #Reference a:hover,
+#cms #Categories a:hover {
+  color: #e3342f;
 }
 
 footer {
