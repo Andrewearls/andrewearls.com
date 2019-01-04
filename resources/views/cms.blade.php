@@ -76,7 +76,7 @@
 			description: $('[name="description"]').val(),
 			live: live,
 		}
-		console.log(data);
+
 		return data;
 	}
 	function update(){
@@ -86,7 +86,7 @@
 			data: collect_data(),
 
 		}).done(function( msg ) {
-			console.log(msg);
+			// console.log(msg);
 		});
 	};
 	function clean_string(string) {
