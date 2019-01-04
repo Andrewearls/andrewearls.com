@@ -1,4 +1,4 @@
-<div id="Reference" class="row no-gutters justify-content-center section">
+<div id="Reference" class="row no-gutters justify-content-center section underline">
 	<!-- Start foreach -->
 	<div class="col-2 reference-object hidden">
 		<a href="">

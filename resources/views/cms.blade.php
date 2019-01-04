@@ -21,7 +21,7 @@
     </div>
 @endif
 {!! Form::open(['url' => route('update', ['id' => $project->id]), 'id' => 'cms']) !!}
-	<div id="Project" class="container-fluid">
+	<div id="Project" class="container">
 		<div class="title row">
 			<div class="col">
 				{{ Form::text('name', $project->name) }}
@@ -44,22 +44,65 @@
 		<div class="title">
 			{{ Form::label('Description:') }}
 		</div>
-		<div class="container">			
-			<div id="Description" class="row justify-content-center">
 				
+		<div id="Description" class="row no-gutters justify-content-center section underline">
+			<div class="col"> 
 				{{ Form::textarea('description', $project->description) }}
-				
+			</div>			
+		</div>
+		
+		<div class="title row">
+			<div class="col">
+				{{ Form::label('References:') }}
 			</div>
 		</div>
-		<div class="title">
-			{{ Form::label('References:') }}
+		<div class="row no-gutters new-reference-container underline">
+			<div class="col-4 image-upload-container">
+				<div class="row">
+					<div class="col">
+						{{ Form::file('reference_image_file') }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						or
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						{{ Form::text('reference_image_link', 'link to image') }}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="row">
+					<div class="col">
+						{{ Form::text('reference_name', 'Reference Name') }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						and
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						{{ Form::text('reference_url', 'Reference Url') }}
+					</div>
+				</div>
+			</div>
 		</div>
-		{{ Form::text('reference', '') }}
 		@include('components.reference')
-		<div class="title">
-			{{ Form::label('Categories:') }}
+		<div class="title row">
+			<div class="col">
+				{{ Form::label('Categories:') }}
+			</div>
 		</div>
-		{{ Form::text('categories', '') }}
+		<div class="row no-gutters underline">
+			<div class="col">
+				{{ Form::text('categories', 'New Category Name') }}
+			</div>
+		</div>
 		@include('components.categories')
 	</div>
 {!! Form::close() !!}	

@@ -113,10 +113,12 @@ main {
 		max-height: 100%;
 		margin: auto;
 	}
-	.section{
+	.underline{
+		padding-bottom: 15px;
 		border-bottom: 1px solid $border-gray;
 	}
 	textarea {
+		height: 100%;
 		resize: none;
 	}
 	.hidden {
@@ -139,6 +141,20 @@ main {
 			&:hover{
 				color: $red;
 			}
+		}
+	}
+	.new-reference-container {
+		text-align: center;
+		.image-upload-container {
+			background-color: $footer-gray;
+			
+			input {
+				background-color: $footer-gray;
+				margin-bottom: 0px;
+			}
+		}
+		input {			
+			height: 31px;
 		}
 	}
 	.switch {

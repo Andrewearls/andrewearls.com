@@ -10595,11 +10595,13 @@ main {
   margin: auto;
 }
 
-#Project .section {
+#Project .underline {
+  padding-bottom: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 #Project textarea {
+  height: 100%;
   resize: none;
 }
 
@@ -10621,6 +10623,23 @@ main {
 #cms #Reference a:hover,
 #cms #Categories a:hover {
   color: #e3342f;
+}
+
+#cms .new-reference-container {
+  text-align: center;
+}
+
+#cms .new-reference-container .image-upload-container {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+#cms .new-reference-container .image-upload-container input {
+  background-color: rgba(0, 0, 0, 0.03);
+  margin-bottom: 0px;
+}
+
+#cms .new-reference-container input {
+  height: 31px;
 }
 
 #cms .switch {
