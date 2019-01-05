@@ -20,7 +20,7 @@
         </ul>
     </div>
 @endif
-{!! Form::open(['url' => route('update_project', ['id' => $project->id]), 'id' => 'cms']) !!}
+{!! Form::open(['url' => route('create_reference'), 'id' => 'cms']) !!}
 	<div id="Project" class="container">
 		<div class="title row">
 			<div class="col">

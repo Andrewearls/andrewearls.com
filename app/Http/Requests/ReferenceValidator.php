@@ -24,7 +24,7 @@ class ReferenceValidator extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique',
+            'name' => 'required',
             'url' => 'required',
             'image' => 'nullable',
         ];

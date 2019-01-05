@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReferenceValidator;
 use App\Reference;
 
 class ReferenceController extends Controller
 {
-    public function create(Request $request)
+    public function create(ReferenceValidator $request)
     {
-    	return $request;
+    	return $request->validated();
     }
 
     public function update(Request $request)
