@@ -9,7 +9,7 @@ class ReferenceController extends Controller
 {
     public function create(Request $request)
     {
-    	# code...
+    	return $request;
     }
 
     public function update(Request $request)

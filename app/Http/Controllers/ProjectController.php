@@ -31,7 +31,7 @@ class ProjectController extends Controller
     public function create()
     {
         $project = Projects::create();
-        return redirect()->route('update', ['id' => $project->id]);
+        return redirect()->route('update_project', ['id' => $project->id]);
     }
 
     public function edit($id)

@@ -20,7 +20,7 @@
         </ul>
     </div>
 @endif
-{!! Form::open(['url' => route('update', ['id' => $project->id]), 'id' => 'cms']) !!}
+{!! Form::open(['url' => route('update_project', ['id' => $project->id]), 'id' => 'cms']) !!}
 	<div id="Project" class="container">
 		<div class="title row">
 			<div class="col">
@@ -129,7 +129,7 @@
 	function update(){
 		$.ajax({
 			method: "POST",
-			url: '{!! route('update', ['id' => $project->id]) !!}',
+			url: '{!! route('update_project', ['id' => $project->id]) !!}',
 			data: collect_data(),
 
 		}).done(function( msg ) {
