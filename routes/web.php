@@ -22,7 +22,7 @@ Route::get('cms/create/project', 'ProjectController@create')->name('create_proje
 Route::get('cms/edit/project/{id}', 'ProjectController@edit')->name('edit_project');
 Route::post('cms/update/project/{id}', 'ProjectController@update')->name('update_project');
 
-Route::post('cms/create/resource', 'ResourceController@create')->name('create_resource');
+Route::post('cms/create/reference', 'ReferenceController@create')->name('create_reference');
 
 
 // hiding authentication features until needed

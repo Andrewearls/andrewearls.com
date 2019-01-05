@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<div class="col-1">				
-				<button type="button" class="btn">Create New Resource</button>					
+				<button type="button" class="btn" onclick="submit_reference_data()">Create New Reference</button>					
 			</div>
 		</div>
 		@include('components.reference')
@@ -118,7 +118,19 @@
 @section('scripts')
 <script type="text/javascript">
 	live = {!! $project->live !!}
+	
+	function store(collected_data, destination){
+		$.ajax({
+			method: "POST",
+			url: destination,
+			data: collected_data,
+
+		}).done(function( msg ) {
+			console.log(msg);
+		});
+	};
 	function submit_project_data() {
+		destination = '{!! route('update_project', ['id' => $project->id]) !!}';
 		data = {
 			_token: "{!! csrf_token() !!}",
 			name: $('[name="name"]').val(),
@@ -127,18 +139,29 @@
 			live: live,
 		}
 
-		update(data);
+		store(data, destination);
 	}
-	function update(collected_data){
-		$.ajax({
-			method: "POST",
-			url: '{!! route('update_project', ['id' => $project->id]) !!}',
-			data: collected_data,
+	function get_reference_image() {
+		image = $('[name="reference_image_file"]')[0];
+		//check if resource file is empty
+		if (image.files.length === 0) {
+			//if first input is empty assign second input regardless
+			image = $('[name="reference_image_link').val();
+		}
+		
+		return image;
+	}
+	function submit_reference_data() {
+		destination = '{!! route('create_reference') !!}'
+		data = {
+			_token: "{!! csrf_token() !!}",
+			name: $('[name="reference_name"]').val(),
+			url: $('[name="reference_url"]').val(),
+			image: get_reference_image(),
+		}
 
-		}).done(function( msg ) {
-			// console.log(msg);
-		});
-	};
+		store(data, destination);
+	}
 	function clean_string(string) {
 		// Remove trailing spaces
 		clean = $.trim(string);
