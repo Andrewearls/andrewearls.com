@@ -61,6 +61,12 @@ nav {
 	padding: 0px;
 }
 
+.btn{
+	background-color: $gray;
+	color: black;
+	border: 1px solid $border-gray;
+}
+
 main {
 	padding-top: 78px;
 }
@@ -145,6 +151,12 @@ main {
 	}
 	.new-reference-container {
 		text-align: center;
+		.btn {
+			height: 100%;
+			&:hover {
+				border-color: $cyan;
+			}
+		}
 		.image-upload-container {
 			background-color: $footer-gray;
 			

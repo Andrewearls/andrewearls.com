@@ -95,6 +95,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-1">				
+				<button type="button" class="btn">Create New Resource</button>					
+			</div>
 		</div>
 		@include('components.reference')
 		<div class="title row">
@@ -115,7 +118,7 @@
 @section('scripts')
 <script type="text/javascript">
 	live = {!! $project->live !!}
-	function collect_data() {
+	function submit_project_data() {
 		data = {
 			_token: "{!! csrf_token() !!}",
 			name: $('[name="name"]').val(),
@@ -124,13 +127,13 @@
 			live: live,
 		}
 
-		return data;
+		update(data);
 	}
-	function update(){
+	function update(collected_data){
 		$.ajax({
 			method: "POST",
 			url: '{!! route('update_project', ['id' => $project->id]) !!}',
-			data: collect_data(),
+			data: collected_data,
 
 		}).done(function( msg ) {
 			// console.log(msg);
@@ -150,7 +153,7 @@
 			$(this).val(clean);
 			//Chage the navarea Title
 			$('.nav-area').find('.title').text(clean);
-			update();
+			submit_project_data();
 		})
 		$('[name="url"]').change(function() {
 			//clean the input
@@ -159,17 +162,17 @@
 			$(this).val(clean);
 			//load new ifram url
 			$('#Infographic').find('iframe').prop('src', clean);
-			update();
+			submit_project_data();
 		})
-		$('[name="reference"]').change(function () {
+		$('[name="reference_name"]').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());
+
 			//remove the val from the input
 			$(this).val('');
 			//create a new reference object
 			newObj = $('#Reference').find('.hidden').clone();
-			// alert($(newObj).find('a').text());
-			//replace text with clean input
+			//replace object text with clean input
 			$(newObj).find('.name').text(clean);
 			//add new reference to the end of the list
 			$(newObj).appendTo('#Reference');
@@ -194,7 +197,7 @@
 		$('.switch').click(function () {
 			$(this).find('.fas').toggleClass('fa-toggle-off fa-toggle-on')
 			live = !live ? 1 : 0;
-			update();
+			submit_project_data();
 		})
 		$('#Reference').on('click', 'a', function (e) {
 			e.preventDefault();

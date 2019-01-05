@@ -10547,6 +10547,12 @@ nav {
   padding: 0px;
 }
 
+.btn {
+  background-color: #e7e7e7;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 main {
   padding-top: 78px;
 }
@@ -10627,6 +10633,14 @@ main {
 
 #cms .new-reference-container {
   text-align: center;
+}
+
+#cms .new-reference-container .btn {
+  height: 100%;
+}
+
+#cms .new-reference-container .btn:hover {
+  border-color: #6cb2eb;
 }
 
 #cms .new-reference-container .image-upload-container {
