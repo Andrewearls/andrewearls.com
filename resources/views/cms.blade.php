@@ -35,7 +35,11 @@
 			<div class="col-2">	
 				<div class="row no-gutters">			
 					<div class="col">Live:</div>
-					<div class="col switch"><i class="fas fa-toggle-off"></i></div>	
+					@if($project->live)
+						<div class="col switch"><i class="fas fa-toggle-on"></i></div>	
+					@else
+						<div class="col switch"><i class="fas fa-toggle-off"></i></div>	
+					@endif
 				</div>	
 			</div>
 		</div>
