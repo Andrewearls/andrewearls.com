@@ -157,9 +157,15 @@ main {
 				border-color: $cyan;
 			}
 		}
-		.image-upload-container {
+		#image-upload-container, #reference-image-display {
 			background-color: $footer-gray;
-			
+			img{
+				height: 80px;
+				border: 1px solid $border-gray;
+				&:hover{
+					border: 1px solid $red;
+				}
+			}
 			input {
 				background-color: $footer-gray;
 				margin-bottom: 0px;

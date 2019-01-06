@@ -10643,11 +10643,24 @@ main {
   border-color: #6cb2eb;
 }
 
-#cms .new-reference-container .image-upload-container {
+#cms .new-reference-container #image-upload-container,
+#cms .new-reference-container #reference-image-display {
   background-color: rgba(0, 0, 0, 0.03);
 }
 
-#cms .new-reference-container .image-upload-container input {
+#cms .new-reference-container #image-upload-container img,
+#cms .new-reference-container #reference-image-display img {
+  height: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#cms .new-reference-container #image-upload-container img:hover,
+#cms .new-reference-container #reference-image-display img:hover {
+  border: 1px solid #e3342f;
+}
+
+#cms .new-reference-container #image-upload-container input,
+#cms .new-reference-container #reference-image-display input {
   background-color: rgba(0, 0, 0, 0.03);
   margin-bottom: 0px;
 }

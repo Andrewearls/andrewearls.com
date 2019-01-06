@@ -61,10 +61,10 @@
 			</div>
 		</div>
 		<div class="row no-gutters new-reference-container underline">
-			<div class="col-4 image-upload-container">
+			<div class="col-4" id="image-upload-container">
 				<div class="row">
 					<div class="col">
-						{{ Form::file('reference_image_file') }}
+						{{ Form::file('reference_image_file', ['onchange' => 'show_reference_image(this)']) }}
 					</div>
 				</div>
 				<div class="row">
@@ -77,6 +77,10 @@
 						{{ Form::text('reference_image_link', 'link to image') }}
 					</div>
 				</div>
+				
+			</div>
+			<div class="col-4 hidden" id="reference-image-display">
+				<img src="">
 			</div>
 			<div class="col">
 				<div class="row">
@@ -142,13 +146,8 @@
 		store(data, destination);
 	}
 	function get_reference_image() {
-		image = $('[name="reference_image_file"]')[0];
-		//check if resource file is empty
-		if (image.files.length === 0) {
-			//if first input is empty assign second input regardless
-			image = $('[name="reference_image_link').val();
-		}
-		
+		image = $('#reference-image-display img').attr('src');
+		console.log(image);
 		return image;
 	}
 	function submit_reference_data() {
@@ -161,6 +160,21 @@
 		}
 
 		store(data, destination);
+	}
+	function show_reference_image(input) {	    
+
+		if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    reader.onload = function (e) {
+		      	$('#reference-image-display')
+		      		.find('img')
+			        .attr('src', e.target.result);
+			    $('#image-upload-container').addClass('hidden');
+				$('#reference-image-display').removeClass('hidden');
+				$('[name="reference_image_link').val('');
+		    };
+		    reader.readAsDataURL(input.files[0]);		    
+		}
 	}
 	function clean_string(string) {
 		// Remove trailing spaces
@@ -187,21 +201,7 @@
 			$('#Infographic').find('iframe').prop('src', clean);
 			submit_project_data();
 		})
-		$('[name="reference_name"]').change(function () {
-			//clean the input
-			clean = clean_string($(this).val());
-
-			//remove the val from the input
-			$(this).val('');
-			//create a new reference object
-			newObj = $('#Reference').find('.hidden').clone();
-			//replace object text with clean input
-			$(newObj).find('.name').text(clean);
-			//add new reference to the end of the list
-			$(newObj).appendTo('#Reference');
-			//remove hidden class from new reference
-			$(newObj).removeClass('hidden');
-		})
+		
 		$('[name="categories"').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());
@@ -226,6 +226,34 @@
 			e.preventDefault();
 			$(this).closest('.reference-object').remove();
 		});
+		$('#reference-image-display img').click( function () {
+			$('#reference-image-display').addClass('hidden');
+			$('#image-upload-container').removeClass('hidden');
+			$('[name="reference_image_file').val('');
+		})
+		$('[name="reference_image_link').change(function () {
+			$('#reference-image-display')
+		      		.find('img')
+			        .attr('src', $(this).val());
+			$('[name="reference_image_file').val('');
+		    $('#image-upload-container').addClass('hidden');
+			$('#reference-image-display').removeClass('hidden');
+		})
+		$('[name="reference_name"]').change(function () {
+			//clean the input
+			clean = clean_string($(this).val());
+
+			//remove the val from the input
+			$(this).val('');
+			//create a new reference object
+			newObj = $('#Reference').find('.hidden').clone();
+			//replace object text with clean input
+			$(newObj).find('.name').text(clean);
+			//add new reference to the end of the list
+			$(newObj).appendTo('#Reference');
+			//remove hidden class from new reference
+			$(newObj).removeClass('hidden');
+		})
 		$('#Categories').on('click', 'a', function (e) {
 			e.preventDefault();
 			$(this).closest('.category-object').remove();
