@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectReferenceTable extends Migration
+class CreateProjectPartnerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateProjectReferenceTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_reference', function (Blueprint $table) {
+        Schema::create('project_partner', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('project_id');
-            $table->integer('reference_id');
+            $table->integer('partner_id');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateProjectReferenceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_reference');
+        Schema::dropIfExists('project_partner');
     }
 }

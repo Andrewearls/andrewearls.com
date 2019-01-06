@@ -130,7 +130,7 @@ main {
 	.hidden {
 		display: none;
 	}
-	#Categories, #Reference {
+	#Categories, #partner {
 		a {
 			width: 100%;
 			text-align: center;
@@ -142,14 +142,14 @@ main {
 }
 
 #cms{
-	#Reference, #Categories {
+	#partner, #Categories {
 		a {
 			&:hover{
 				color: $red;
 			}
 		}
 	}
-	.new-reference-container {
+	.new-partner-container {
 		text-align: center;
 		.btn {
 			height: 100%;
@@ -157,7 +157,7 @@ main {
 				border-color: $cyan;
 			}
 		}
-		#image-upload-container, #reference-image-display {
+		#image-upload-container, #partner-image-display {
 			background-color: $footer-gray;
 			img{
 				height: 80px;

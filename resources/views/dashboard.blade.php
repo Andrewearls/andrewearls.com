@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="card-footer">
-                            <img src=""> <a href="#">Reference</a>
+                            <img src=""> <a href="#">partner</a>
                         </div>
                     </div>
                 </div>

@@ -10616,56 +10616,56 @@ main {
 }
 
 #Project #Categories a,
-#Project #Reference a {
+#Project #partner a {
   width: 100%;
   text-align: center;
 }
 
 #Project #Categories img,
-#Project #Reference img {
+#Project #partner img {
   padding-right: 30px;
 }
 
-#cms #Reference a:hover,
+#cms #partner a:hover,
 #cms #Categories a:hover {
   color: #e3342f;
 }
 
-#cms .new-reference-container {
+#cms .new-partner-container {
   text-align: center;
 }
 
-#cms .new-reference-container .btn {
+#cms .new-partner-container .btn {
   height: 100%;
 }
 
-#cms .new-reference-container .btn:hover {
+#cms .new-partner-container .btn:hover {
   border-color: #6cb2eb;
 }
 
-#cms .new-reference-container #image-upload-container,
-#cms .new-reference-container #reference-image-display {
+#cms .new-partner-container #image-upload-container,
+#cms .new-partner-container #partner-image-display {
   background-color: rgba(0, 0, 0, 0.03);
 }
 
-#cms .new-reference-container #image-upload-container img,
-#cms .new-reference-container #reference-image-display img {
+#cms .new-partner-container #image-upload-container img,
+#cms .new-partner-container #partner-image-display img {
   height: 80px;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-#cms .new-reference-container #image-upload-container img:hover,
-#cms .new-reference-container #reference-image-display img:hover {
+#cms .new-partner-container #image-upload-container img:hover,
+#cms .new-partner-container #partner-image-display img:hover {
   border: 1px solid #e3342f;
 }
 
-#cms .new-reference-container #image-upload-container input,
-#cms .new-reference-container #reference-image-display input {
+#cms .new-partner-container #image-upload-container input,
+#cms .new-partner-container #partner-image-display input {
   background-color: rgba(0, 0, 0, 0.03);
   margin-bottom: 0px;
 }
 
-#cms .new-reference-container input {
+#cms .new-partner-container input {
   height: 31px;
 }
 

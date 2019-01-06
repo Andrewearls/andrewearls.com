@@ -5,7 +5,7 @@
 	<ul>
 		<li><a href="#Infographic">Infographic</a></li>
 		<li><a href="#Description">Description</a></li>
-		<li><a href="#Reference">Reference</a></li>
+		<li><a href="#partner">partner</a></li>
 		<li><a href="#Categories">Categories</a></li>
 	</ul>
 @endsection
@@ -20,7 +20,7 @@
         </ul>
     </div>
 @endif
-{!! Form::open(['url' => route('create_reference'), 'id' => 'cms']) !!}
+{!! Form::open(['url' => route('create_partner'), 'id' => 'cms']) !!}
 	<div id="Project" class="container">
 		<div class="title row">
 			<div class="col">
@@ -57,14 +57,14 @@
 		
 		<div class="title row">
 			<div class="col">
-				{{ Form::label('References:') }}
+				{{ Form::label('partners:') }}
 			</div>
 		</div>
-		<div class="row no-gutters new-reference-container underline">
+		<div class="row no-gutters new-partner-container underline">
 			<div class="col-4" id="image-upload-container">
 				<div class="row">
 					<div class="col">
-						{{ Form::file('reference_image_file', ['onchange' => 'show_reference_image(this)']) }}
+						{{ Form::file('partner_image_file', ['onchange' => 'show_partner_image(this)']) }}
 					</div>
 				</div>
 				<div class="row">
@@ -74,18 +74,18 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						{{ Form::text('reference_image_link', 'link to image') }}
+						{{ Form::text('partner_image_link', 'link to image') }}
 					</div>
 				</div>
 				
 			</div>
-			<div class="col-4 hidden" id="reference-image-display">
+			<div class="col-4 hidden" id="partner-image-display">
 				<img src="">
 			</div>
 			<div class="col">
 				<div class="row">
 					<div class="col">
-						{{ Form::text('reference_name', 'Reference Name') }}
+						{{ Form::text('partner_name', 'partner Name') }}
 					</div>
 				</div>
 				<div class="row">
@@ -95,15 +95,15 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						{{ Form::text('reference_url', 'Reference Url') }}
+						{{ Form::text('partner_url', 'partner Url') }}
 					</div>
 				</div>
 			</div>
 			<div class="col-1">				
-				<button type="button" class="btn" onclick="submit_reference_data()">Create New Reference</button>					
+				<button type="button" class="btn" onclick="submit_partner_data()">Create New partner</button>					
 			</div>
 		</div>
-		@include('components.reference')
+		@include('components.partner')
 		<div class="title row">
 			<div class="col">
 				{{ Form::label('Categories:') }}
@@ -144,33 +144,32 @@
 
 		store(data, destination);
 	}
-	function get_reference_image() {
-		image = $('#reference-image-display img').attr('src');
-		console.log(image);
+	function get_partner_image() {
+		image = $('#partner-image-display img').attr('src');
 		return image;
 	}
-	function submit_reference_data() {
-		destination = '{!! route('create_reference') !!}'
+	function submit_partner_data() {
+		destination = '{!! route('create_partner') !!}'
 		data = {
 			_token: "{!! csrf_token() !!}",
-			name: $('[name="reference_name"]').val(),
-			url: $('[name="reference_url"]').val(),
-			image: get_reference_image(),
+			name: $('[name="partner_name"]').val(),
+			url: $('[name="partner_url"]').val(),
+			image: get_partner_image(),
 		}
 
 		store(data, destination);
 	}
-	function show_reference_image(input) {	    
+	function show_partner_image(input) {	    
 
 		if (input.files && input.files[0]) {
 		    var reader = new FileReader();
 		    reader.onload = function (e) {
-		      	$('#reference-image-display')
+		      	$('#partner-image-display')
 		      		.find('img')
 			        .attr('src', e.target.result);
 			    $('#image-upload-container').addClass('hidden');
-				$('#reference-image-display').removeClass('hidden');
-				$('[name="reference_image_link').val('');
+				$('#partner-image-display').removeClass('hidden');
+				$('[name="partner_image_link').val('');
 		    };
 		    reader.readAsDataURL(input.files[0]);		    
 		}
@@ -221,37 +220,37 @@
 			live = !live ? 1 : 0;
 			submit_project_data();
 		})
-		$('#Reference').on('click', 'a', function (e) {
+		$('#partner').on('click', 'a', function (e) {
 			e.preventDefault();
-			$(this).closest('.reference-object').remove();
+			$(this).closest('.partner-object').remove();
 		});
-		$('#reference-image-display img').click( function () {
-			$('#reference-image-display').addClass('hidden');
-			$('#reference-image-display img').attr('src', '');
+		$('#partner-image-display img').click( function () {
+			$('#partner-image-display').addClass('hidden');
+			$('#partner-image-display img').attr('src', '');
 			$('#image-upload-container').removeClass('hidden');
-			$('[name="reference_image_file').val('');
+			$('[name="partner_image_file').val('');
 		})
-		$('[name="reference_image_link').change(function () {
-			$('#reference-image-display')
+		$('[name="partner_image_link').change(function () {
+			$('#partner-image-display')
 		      		.find('img')
 			        .attr('src', $(this).val());
-			$('[name="reference_image_file').val('');
+			$('[name="partner_image_file').val('');
 		    $('#image-upload-container').addClass('hidden');
-			$('#reference-image-display').removeClass('hidden');
+			$('#partner-image-display').removeClass('hidden');
 		})
-		$('[name="reference_name"]').change(function () {
+		$('[name="partner_name"]').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());
 
 			//remove the val from the input
 			$(this).val('');
-			//create a new reference object
-			newObj = $('#Reference').find('.hidden').clone();
+			//create a new partner object
+			newObj = $('#partner').find('.hidden').clone();
 			//replace object text with clean input
 			$(newObj).find('.name').text(clean);
-			//add new reference to the end of the list
-			$(newObj).appendTo('#Reference');
-			//remove hidden class from new reference
+			//add new partner to the end of the list
+			$(newObj).appendTo('#partner');
+			//remove hidden class from new partner
 			$(newObj).removeClass('hidden');
 		})
 		$('#Categories').on('click', 'a', function (e) {
