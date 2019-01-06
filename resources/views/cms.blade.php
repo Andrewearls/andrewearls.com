@@ -128,7 +128,6 @@
 			method: "POST",
 			url: destination,
 			data: collected_data,
-
 		}).done(function( msg ) {
 			console.log(msg);
 		});
