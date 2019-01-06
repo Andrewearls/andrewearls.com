@@ -12,12 +12,8 @@ class partnerController extends Controller
     {
     	$validated = $request->validated();
     	//This should be sanitized
-    	// $partner = partner::create($validated);
     	$partner = Partners::create($validated);
-    	// $partner->name = $validated['name'];
-    	// $partner->url = $validated['url'];
-    	// $partner->save();
-
+        
     	return 'success';
     }
 
