@@ -228,6 +228,7 @@
 		});
 		$('#reference-image-display img').click( function () {
 			$('#reference-image-display').addClass('hidden');
+			$('#reference-image-display img').attr('src', '');
 			$('#image-upload-container').removeClass('hidden');
 			$('[name="reference_image_file').val('');
 		})
