@@ -212,6 +212,15 @@
 		$('#image-upload-container').removeClass('hidden');
 		$('[name="partner_image_file').val('');
 	}
+	function submit_category_data() {
+		destination = '{!! route("create_category") !!}';
+		data = {
+			_token: "{!! csrf_token() !!}",
+			name: $('[name="category"]').val(),
+		}
+
+		store(data, destination);
+	}
 	function clean_string(string) {
 		// Remove trailing spaces
 		clean = $.trim(string);
@@ -241,11 +250,13 @@
 		$('[name="categories"').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());
+			//submit the input
+			submit_category_data();
+
 			//remove the val from the input
 			$(this).val('');
 			//create a new category object
 			newObj = $('#Categories').find('.hidden').clone();
-			// alert($(newObj).find('a').text());
 			//replace text with clean input
 			$(newObj).find('.name').text(clean);
 			//add new category to the end of the list
