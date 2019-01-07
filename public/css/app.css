@@ -10623,7 +10623,13 @@ main {
 
 #Project #Categories img,
 #Project #partner img {
-  padding-right: 30px;
+  height: 15px;
+  width: 15px;
+}
+
+#Project #Categories span,
+#Project #partner span {
+  padding-left: 30px;
 }
 
 #cms #partner a:hover,
