@@ -175,6 +175,8 @@
 		$(newObj).find('a').attr('href', data['url']);
 		//add new partner to the end of the list
 		$(newObj).appendTo('#partner');
+		//add active class
+		$(newObj).addClass('active');
 		//remove hidden class from new partner
 		$(newObj).removeClass('hidden');
 		
@@ -260,6 +262,8 @@
 			$(newObj).find('.name').text(clean);
 			//add new category to the end of the list
 			$(newObj).appendTo('#Categories');
+			//add class active
+			$(newObj).addClass('active');
 			//remove hidden class from new category
 			$(newObj).removeClass('hidden');
 		})		
@@ -270,7 +274,7 @@
 		})
 		$('#partner').on('click', 'a', function (e) {
 			e.preventDefault();
-			$(this).closest('.partner-object').remove();
+			$(this).closest('.partner-object').toggleClass('active not-active');
 		});
 		$('#partner-image-display img').click( function () {
 			hide_partner_image();
@@ -286,7 +290,7 @@
 		
 		$('#Categories').on('click', 'a', function (e) {
 			e.preventDefault();
-			$(this).closest('.category-object').remove();
+			$(this).closest('.category-object').toggleClass('active not-active');
 		})
 	});
 	
