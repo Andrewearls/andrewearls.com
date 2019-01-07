@@ -216,9 +216,8 @@
 		destination = '{!! route("create_category") !!}';
 		data = {
 			_token: "{!! csrf_token() !!}",
-			name: $('[name="category"]').val(),
+			name: $('[name="categories"]').val(),
 		}
-
 		store(data, destination);
 	}
 	function clean_string(string) {
