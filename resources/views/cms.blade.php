@@ -123,13 +123,15 @@
 <script type="text/javascript">
 	live = {!! $project->live !!}
 	
-	function store(collected_data, destination){
+	function store(collected_data, destination, success = function(){console.log('success')}){
 		$.ajax({
 			method: "POST",
 			url: destination,
 			data: collected_data,
 		}).done(function( msg ) {
-			console.log(msg);
+			if (msg === 'success') {
+				success;
+			}
 		});
 	};
 	function submit_project_data() {
@@ -148,6 +150,35 @@
 		image = $('#partner-image-display img').attr('src');
 		return image;
 	}
+	function clear_partner_form() {
+		$('[name="partner_name"]').val('');
+		$('[name="partner_url"]').val('');
+		$('[name="partner_image_link"]').val('');
+		$('[name="partner_image_file"]').val('');
+		if ($('#partner-image-display img').attr('src') != '' ) {
+			hide_partner_image();
+		}
+	}
+	function make_partner_element(data) {
+		//clean the input
+		// clean = clean_string($(this).val());
+
+		//remove the val from the input
+		clear_partner_form();
+		//create a new partner object
+		newObj = $('#partner').find('.hidden').clone();
+		//replace object text with clean input
+		$(newObj).find('.name').text(data['name']);
+		//replace object image with new image
+		$(newObj).find('img').attr('src', data['image']);
+		//replace object link with new link
+		$(newObj).find('a').attr('href', data['url']);
+		//add new partner to the end of the list
+		$(newObj).appendTo('#partner');
+		//remove hidden class from new partner
+		$(newObj).removeClass('hidden');
+		
+	}
 	function submit_partner_data() {
 		destination = '{!! route('create_partner') !!}'
 		data = {
@@ -157,7 +188,8 @@
 			image: get_partner_image(),
 		}
 
-		store(data, destination);
+		success = make_partner_element(data);
+		store(data, destination, success);
 	}
 	function show_partner_image(input) {	    
 
@@ -169,10 +201,16 @@
 			        .attr('src', e.target.result);
 			    $('#image-upload-container').addClass('hidden');
 				$('#partner-image-display').removeClass('hidden');
-				$('[name="partner_image_link').val('');
+				$('[name="partner_image_link"]').val('');
 		    };
 		    reader.readAsDataURL(input.files[0]);		    
 		}
+	}
+	function hide_partner_image() {
+		$('#partner-image-display').addClass('hidden');
+		$('#partner-image-display img').attr('src', '');
+		$('#image-upload-container').removeClass('hidden');
+		$('[name="partner_image_file').val('');
 	}
 	function clean_string(string) {
 		// Remove trailing spaces
@@ -225,10 +263,7 @@
 			$(this).closest('.partner-object').remove();
 		});
 		$('#partner-image-display img').click( function () {
-			$('#partner-image-display').addClass('hidden');
-			$('#partner-image-display img').attr('src', '');
-			$('#image-upload-container').removeClass('hidden');
-			$('[name="partner_image_file').val('');
+			hide_partner_image();
 		})
 		$('[name="partner_image_link').change(function () {
 			$('#partner-image-display')
@@ -238,21 +273,7 @@
 		    $('#image-upload-container').addClass('hidden');
 			$('#partner-image-display').removeClass('hidden');
 		})
-		$('[name="partner_name"]').change(function () {
-			//clean the input
-			clean = clean_string($(this).val());
-
-			//remove the val from the input
-			$(this).val('');
-			//create a new partner object
-			newObj = $('#partner').find('.hidden').clone();
-			//replace object text with clean input
-			$(newObj).find('.name').text(clean);
-			//add new partner to the end of the list
-			$(newObj).appendTo('#partner');
-			//remove hidden class from new partner
-			$(newObj).removeClass('hidden');
-		})
+		
 		$('#Categories').on('click', 'a', function (e) {
 			e.preventDefault();
 			$(this).closest('.category-object').remove();

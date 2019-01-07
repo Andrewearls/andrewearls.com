@@ -11,6 +11,7 @@ class partnerController extends Controller
     public function create(PartnerValidator $request)
     {
     	$validated = $request->validated();
+
     	//This should be sanitized
     	$partner = Partners::create($validated);
         
