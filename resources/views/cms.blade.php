@@ -214,13 +214,26 @@
 		$('#image-upload-container').removeClass('hidden');
 		$('[name="partner_image_file').val('');
 	}
-	function submit_category_data() {
+	function new_category_object(categoryName) {
+		//create a new category object
+		newObj = $('#Categories').find('.hidden').clone();
+		//replace text with clean input
+		$(newObj).find('.name').text(categoryName);
+		//add new category to the end of the list
+		$(newObj).appendTo('#Categories');
+		//add class active
+		$(newObj).addClass('active');
+		//remove hidden class from new category
+		$(newObj).removeClass('hidden');
+	}
+	function submit_category_data(categoryName) {
 		destination = '{!! route("create_category") !!}';
 		data = {
 			_token: "{!! csrf_token() !!}",
-			name: $('[name="categories"]').val(),
+			name: categoryName,
 		}
-		store(data, destination);
+		success = new_category_object(categoryName);
+		store(data, destination,success);
 	}
 	function clean_string(string) {
 		// Remove trailing spaces
@@ -252,20 +265,11 @@
 			//clean the input
 			clean = clean_string($(this).val());
 			//submit the input
-			submit_category_data();
+			submit_category_data(clean);
 
 			//remove the val from the input
 			$(this).val('');
-			//create a new category object
-			newObj = $('#Categories').find('.hidden').clone();
-			//replace text with clean input
-			$(newObj).find('.name').text(clean);
-			//add new category to the end of the list
-			$(newObj).appendTo('#Categories');
-			//add class active
-			$(newObj).addClass('active');
-			//remove hidden class from new category
-			$(newObj).removeClass('hidden');
+			
 		})		
 		$('.switch').click(function () {
 			$(this).find('.fas').toggleClass('fa-toggle-off fa-toggle-on')
