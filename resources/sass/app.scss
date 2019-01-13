@@ -131,6 +131,7 @@ main {
 		display: none;
 	}
 	#Categories, #partner {
+		
 		a {
 			width: 100%;
 			text-align: center;
@@ -142,6 +143,7 @@ main {
 		span {
 			padding-left: 30px;
 		}
+		
 	}
 }
 
@@ -177,6 +179,16 @@ main {
 		}
 		input {			
 			height: 31px;
+		}
+	}
+	.category-object {
+		a {
+			color: black;
+			div {
+				border: 1px solid $border-gray;
+				border-radius: 3px;
+				background-color: $orange-category;
+			}
 		}
 	}
 	.switch {

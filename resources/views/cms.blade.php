@@ -122,6 +122,19 @@
 @section('scripts')
 <script type="text/javascript">
 	live = {!! $project->live !!}
+	var colors = [
+			'#FF6161',
+			'#DE7878',
+			'#D38736',
+			'#E5D524',
+			'#97DC38',
+			'#38DC40',
+			'#38DC79',
+			'#38DCBB',
+			'#38A2DC',
+			'#8990DC',
+			'#AF88D7'
+		];
 	
 	function store(collected_data, destination, success = function(){console.log('success')}){
 		$.ajax({
@@ -214,11 +227,20 @@
 		$('#image-upload-container').removeClass('hidden');
 		$('[name="partner_image_file').val('');
 	}
+	function get_category_color() {
+		
+		
+		colors.push(colors.shift());
+		console.log(colors);
+		return colors[0];
+	}
 	function new_category_object(categoryName) {
 		//create a new category object
 		newObj = $('#Categories').find('.hidden').clone();
 		//replace text with clean input
 		$(newObj).find('.name').text(categoryName);
+		//add color
+		$(newObj). find('.name').css('background-color', get_category_color());
 		//add new category to the end of the list
 		$(newObj).appendTo('#Categories');
 		//add class active
