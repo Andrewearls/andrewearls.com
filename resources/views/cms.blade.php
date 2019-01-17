@@ -5,7 +5,7 @@
 	<ul>
 		<li><a href="#Infographic">Infographic</a></li>
 		<li><a href="#Description">Description</a></li>
-		<li><a href="#partner">partner</a></li>
+		<li><a href="#partner">Partners</a></li>
 		<li><a href="#Categories">Categories</a></li>
 	</ul>
 @endsection
