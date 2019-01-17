@@ -39,7 +39,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Projects::find($id);
-        $partners = Partners::all()
+        $partners = Partners::all();
         $categories = Categories::all();
 
         return view('cms')->with(['project' => $project,'partners' => $partners, 'categories' => $categories]);
