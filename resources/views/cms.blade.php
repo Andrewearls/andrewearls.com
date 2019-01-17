@@ -114,6 +114,7 @@
 				{{ Form::text('categories', 'New Category Name') }}
 			</div>
 		</div>
+
 		@include('components.categories')
 	</div>
 {!! Form::close() !!}	
@@ -227,20 +228,18 @@
 		$('#image-upload-container').removeClass('hidden');
 		$('[name="partner_image_file').val('');
 	}
-	function get_category_color() {
-		
-		
+	function get_category_color() {		
 		colors.push(colors.shift());
 		console.log(colors);
 		return colors[0];
 	}
 	function new_category_object(categoryName) {
 		//create a new category object
-		newObj = $('#Categories').find('.hidden').clone();
+		newObj = $('#Categories .category-object').first().clone();
 		//replace text with clean input
 		$(newObj).find('.name').text(categoryName);
 		//add color
-		$(newObj). find('.name').css('background-color', get_category_color());
+		$(newObj).find('.name').css('background-color', get_category_color());
 		//add new category to the end of the list
 		$(newObj).appendTo('#Categories');
 		//add class active
@@ -264,6 +263,10 @@
 		return clean;
 	};
 	$(document).ready(function () {
+		//set the colors for the categories
+		$('.category-object').each(function () {
+			$(this).find('.name').css('background-color', get_category_color());
+		})
 		$('[name="name"]').change(function () {
 			//clean the input
 			clean = clean_string($(this).val());

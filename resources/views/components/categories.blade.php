@@ -1,9 +1,9 @@
 <div id="Categories" class="row no-gutters justify-content-center section">
-	<!-- Start foreach -->
-	<div class="col-2 category-object hidden">
+	@foreach($categories as $category)
+	<div class="col-2 category-object">
 		<a href="">
-			<div class="name">Category Name</div>
+			<div class="name">{{ $category->name }}</div>
 		</a>
 	</div>
-	<!-- End foreach -->
+	@endforeach
 </div>

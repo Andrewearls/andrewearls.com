@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Projects;
+use App\Categories;
 use App\Http\Requests\ProjectValidator;
 
 class ProjectController extends Controller
@@ -37,7 +38,8 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Projects::find($id);
-        return view('cms')->with(['project' => $project]);
+        $categories = Categories::all();
+        return view('cms')->with(['project' => $project, 'categories' => $categories]);
     }
 
     public function update(ProjectValidator $request, $id)
