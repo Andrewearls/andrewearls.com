@@ -8,6 +8,11 @@ use App\Http\Requests\CategoryValidator;
 
 class CategoryController extends Controller
 {
+    public function index()
+    {
+        $categories = Categories::all();
+        return view('categories')->with(['categories' => $categories]);
+    }
     public function create(CategoryValidator $request)
     {
     	$validated = $request->validated();

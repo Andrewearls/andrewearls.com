@@ -24,6 +24,7 @@ Route::post('cms/update/project/{id}', 'ProjectController@update')->name('update
 
 Route::post('cms/create/partner', 'PartnerController@create')->name('create_partner');
 
+Route::get('cms/categories', 'CategoryController@index')->name('categories');
 Route::post('cms/create/category', 'CategoryController@create')->name('create_category');
 
 
