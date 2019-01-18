@@ -10684,6 +10684,10 @@ main {
   border-radius: 3px;
 }
 
+#cms .not-active a div {
+  background-color: lightgray !important;
+}
+
 #cms .switch {
   line-height: 55px;
 }

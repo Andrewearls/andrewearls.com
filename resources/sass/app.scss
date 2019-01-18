@@ -190,6 +190,13 @@ main {
 			}
 		}
 	}
+	.not-active {
+		a {
+			div {
+				background-color: lightgray !important; 
+			}
+		}
+	}
 	.switch {
 		line-height: 55px;
 		
